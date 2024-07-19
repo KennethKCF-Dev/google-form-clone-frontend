@@ -79,6 +79,7 @@ const formsSlice = createSlice({
     },
     updateQuestion: (state, action) => {
       const { index, field, value } = action.payload;
+      if(field === "type" && value === "text") state.currentForm.questions[index].options = [];
       state.currentForm.questions[index][field] = value;
     },
     copyQuestion: (state, action) => {
