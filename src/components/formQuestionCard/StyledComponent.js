@@ -17,6 +17,14 @@ export const QuestionCard = styled(EditCard)`
   &:last-child {
     margin-bottom: 100px;
   }
+
+  @media (max-width: 768px) {
+    grid-template-areas:
+    "typeSelector typeSelector typeSelector"
+    "input input input"
+    "answer answer answer"
+    "footer footer footer";
+  }
 `;
 
 export const QuestionCardFooter = styled.div`
