@@ -14,7 +14,8 @@ import {
   addOption,
   updateOption,
   removeOption,
-  selectCurrentForm
+  selectCurrentForm,
+  copyQuestion
 } from '../redux/slice/formsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -65,6 +66,10 @@ const FormCreatePage = () => {
       dispatch(removeOption({ questionIndex, optionIndex }));
     };
 
+    const onCopyQuestion = (questionIndex) => () => {
+      dispatch(copyQuestion(questionIndex));
+    };
+
     return (
       <>
         <Container>
@@ -89,6 +94,7 @@ const FormCreatePage = () => {
               addOption={onAddOption}
               deleteOption={onRemoveOption}
               updateOption={onUpdateOption}
+              copyQuestion={onCopyQuestion}
             />
           ))}
         </Container>

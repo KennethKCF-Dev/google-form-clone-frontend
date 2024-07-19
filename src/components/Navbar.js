@@ -54,7 +54,7 @@ const Navbar = () => {
       <NavLogoButton to={'/'}>
         <NavLogo src='https://img.icons8.com/?size=100&id=E4VmOrv6BZqd&format=png&color=000000' />
         <Span>
-          Form
+          Forms
         </Span>
       </NavLogoButton>
     </Nav>

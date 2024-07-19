@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --primary: rgb(103, 58, 183);
   --secondary: rgb(240, 235, 248);
@@ -15,7 +17,7 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Noto Sans", sans-serif;
   margin: 0;
   padding: 0;
   background-color: white;

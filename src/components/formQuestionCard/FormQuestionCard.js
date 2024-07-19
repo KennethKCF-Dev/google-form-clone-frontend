@@ -1,11 +1,14 @@
 import React from 'react';
-import { FormQuesInput, QuestionAddOption, QuestionAnswerContainer, QuestionCard, QuestionCardFooter, QuestionOption, QuestionOptionDelButton, QuestionOptionInput, QuestionOptionLabel, QuestionRemoveButton, QuestionTextAnswer } from './StyledComponent';
-import { MenuItem } from '@mui/material';
+import { FormQuesInput, QuestionAddOption, QuestionAnswerContainer, QuestionCard, QuestionCardFooter, QuestionCopyButton, QuestionOption, QuestionOptionDelButton, QuestionOptionInput, QuestionOptionLabel, QuestionRemoveButton, QuestionTextAnswer } from './StyledComponent';
+import { Box, ListItemIcon, ListItemText, MenuItem } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import { Dropdown } from '../common/CommonStyledComponent';
+import ArrowDropDownCircleOutlinedIcon from '@mui/icons-material/ArrowDropDownCircleOutlined';
+import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-const FormQuestionCard = ({ question, index, updateQuestion, deleteQuestion, addOption, deleteOption, updateOption}) => {
+const FormQuestionCard = ({ question, index, updateQuestion, deleteQuestion, copyQuestion, addOption, deleteOption, updateOption }) => {
   return (
     <QuestionCard>
       <FormQuesInput
@@ -17,16 +20,40 @@ const FormQuestionCard = ({ question, index, updateQuestion, deleteQuestion, add
         fullWidth
         value={question.type}
         onChange={updateQuestion(index, 'type')}
+        renderValue={(value) => (
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <ListItemIcon>
+              {value === 'text' ? <NotesOutlinedIcon /> : <ArrowDropDownCircleOutlinedIcon />}
+            </ListItemIcon>
+            <ListItemText>
+              {value === 'text' ? "Text" : "Dropdown"}
+            </ListItemText>
+          </Box>
+        )}
       >
-        <MenuItem value='text'>text</MenuItem>
-        <MenuItem value='dropdown'>drop</MenuItem>
+        <MenuItem value='text'>
+          <ListItemIcon>
+            <NotesOutlinedIcon />
+          </ListItemIcon>
+          <ListItemText>
+            Text
+          </ListItemText>
+        </MenuItem>
+        <MenuItem value='dropdown'>
+          <ListItemIcon>
+            <ArrowDropDownCircleOutlinedIcon />
+          </ListItemIcon>
+          <ListItemText>
+            Dropdown
+          </ListItemText>
+        </MenuItem>
       </Dropdown>
       <QuestionAnswerContainer>
-        {question.type === 'text'?  (
+        {question.type === 'text' ? (
           <QuestionTextAnswer>
             Text Answer
           </QuestionTextAnswer>
-        ): (
+        ) : (
           <>
             {question.options.map((option, optionIndex) => (
               <QuestionOption key={optionIndex}>
@@ -47,8 +74,11 @@ const FormQuestionCard = ({ question, index, updateQuestion, deleteQuestion, add
         )}
       </QuestionAnswerContainer>
       <QuestionCardFooter>
-        <QuestionRemoveButton>
-          <DeleteForeverOutlinedIcon onClick={deleteQuestion(index)} />
+        <QuestionCopyButton title='Copy Question' onClick={copyQuestion(index)}>
+          <ContentCopyIcon />
+        </QuestionCopyButton>
+        <QuestionRemoveButton title='Delete Question' onClick={deleteQuestion(index)}>
+          <DeleteForeverOutlinedIcon  />
         </QuestionRemoveButton>
       </QuestionCardFooter>
     </QuestionCard>

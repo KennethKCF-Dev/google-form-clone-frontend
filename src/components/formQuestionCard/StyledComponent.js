@@ -122,3 +122,13 @@ export const QuestionRemoveButton = styled(RoundButton)`
     background-color: #ededed;
   }
 `;
+
+export const QuestionCopyButton = styled(RoundButton)`
+  color: gray;
+  width: 50px;
+  height: 50px;
+
+  &:hover {
+    background-color: #ededed;
+  }
+`;

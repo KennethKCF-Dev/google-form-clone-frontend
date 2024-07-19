@@ -68,6 +68,9 @@ export const RoundButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FloatingButton = styled(RoundButton)`
@@ -99,6 +102,7 @@ export const Dropdown = muiStyled(Select)(({ theme }) => ({
     borderColor: theme.palette.grey[400],
     borderWidth: 1,
   },
+  minWidth: "200px"
 }));
 
 export const FloatingMenu = styled.div`
@@ -160,7 +164,6 @@ export const RecButton = styled.button`
     color: white;
     cursor: pointer;
     display: inline-block;
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: .25px;

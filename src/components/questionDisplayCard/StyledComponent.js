@@ -13,7 +13,6 @@ export const QuestionCard = styled(Card)`
 
 export const QuestionLabel = styled.span`
     font-size: 12pt;
-    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
     letter-spacing: 0;
     line-height: 24px;
     color: rgb(32, 33, 36);
@@ -24,7 +23,6 @@ export const QuestionLabel = styled.span`
 
 export const QuestionInput = styled(BaseInput)`
     min-height: 24px;
-    font-family: Roboto, Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: .2px;

@@ -22,7 +22,6 @@ export const HeadingCard = styled(Card)`
 
 export const FormTitle = styled.span`
     font-size: 24pt;
-    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
     letter-spacing: 0;
     color: rgb(32, 33, 36);
     line-height: 135%;
@@ -33,7 +32,6 @@ export const FormTitle = styled.span`
 `
 
 export const FormDescription = styled.span`
-    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
     font-size: 11pt;
     line-height: 15pt;
     font-weight: 400;

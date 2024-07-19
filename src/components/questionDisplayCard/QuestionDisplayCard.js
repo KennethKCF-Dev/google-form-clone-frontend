@@ -24,6 +24,9 @@ const QuestionDisplayCard = ({
                     onChange={onChange}
                     placeholder='Choose'
                 >
+                    <MenuItem value="" disabled>
+                        Select an option
+                    </MenuItem>
                     {question.options.map((item, index) => (
                         <MenuItem key={index} value={item}>{item}</MenuItem>
                     ))}
