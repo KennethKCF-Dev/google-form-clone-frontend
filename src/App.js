@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import FormCreatePage from './pages/FormCreatePage';
+import FormListPage from './pages/FormListPage';
+import FormFillPage from './pages/FormFillPage'
+import Navbar from './components/Navbar';
+import styled from 'styled-components';
+import FormSubmittedPage from './pages/FormSubmittedPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const Body = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+`;
 
 function App() {
+  const location = useLocation();
+  
+  const changeBgColor = location.pathname === '/form';
+
+  useEffect(() => {
+    document.body.style.backgroundColor = changeBgColor ? "white" : "var(--secondary)";
+  }, [location.pathname]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover={false}
+        theme="light"/>
+      <Navbar />
+      <Body>
+        <Routes>
+          <Route path="/form" element={<FormListPage />} />
+          <Route path="/create" element={<FormCreatePage />} />
+          <Route path="/form/:formId" element={<FormFillPage />} />
+          <Route path="/submitted/:formId" element={<FormSubmittedPage />} />
+
+          <Route path="*" element={<Navigate to="/form" replace />} />
+        </Routes>
+      </Body>
     </div>
   );
 }
