@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { EditCard } from '../common/CommonStyledComponent';
+import styled from "styled-components";
+import { EditCard } from "../common/CommonStyledComponent";
 
-import { BaseInput } from '../common/CommonStyledComponent';
-import { RoundButton } from '../common/CommonStyledComponent';
+import { BaseInput } from "../common/CommonStyledComponent";
+import { RoundButton } from "../common/CommonStyledComponent";
 
 export const QuestionCard = styled(EditCard)`
   display: grid;

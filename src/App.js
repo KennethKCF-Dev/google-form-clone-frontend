@@ -1,14 +1,14 @@
-import './App.css';
-import React, { useEffect } from 'react';
-import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import FormCreatePage from './pages/FormCreatePage';
-import FormListPage from './pages/FormListPage';
-import FormFillPage from './pages/FormFillPage'
-import Navbar from './components/Navbar';
-import styled from 'styled-components';
-import FormSubmittedPage from './pages/FormSubmittedPage';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+import React, { useEffect } from "react";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import FormCreatePage from "./pages/FormCreatePage";
+import FormListPage from "./pages/FormListPage";
+import FormFillPage from "./pages/FormFillPage";
+import Navbar from "./components/Navbar";
+import styled from "styled-components";
+import FormSubmittedPage from "./pages/FormSubmittedPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Body = styled.div`
   width: 100%;
@@ -18,11 +18,13 @@ const Body = styled.div`
 
 function App() {
   const location = useLocation();
-  
-  const changeBgColor = location.pathname === '/form';
+
+  const changeBgColor = location.pathname === "/form";
 
   useEffect(() => {
-    document.body.style.backgroundColor = changeBgColor ? "white" : "var(--secondary)";
+    document.body.style.backgroundColor = changeBgColor
+      ? "white"
+      : "var(--secondary)";
   }, [location.pathname]);
 
   return (
@@ -37,7 +39,8 @@ function App() {
         pauseOnFocusLoss
         draggable={false}
         pauseOnHover={false}
-        theme="light"/>
+        theme="light"
+      />
       <Navbar />
       <Body>
         <Routes>

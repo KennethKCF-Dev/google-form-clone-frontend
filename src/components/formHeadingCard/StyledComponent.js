@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { EditCard } from '../common/CommonStyledComponent';
-import { BaseInput } from '../common/CommonStyledComponent';
+import styled from "styled-components";
+import { EditCard } from "../common/CommonStyledComponent";
+import { BaseInput } from "../common/CommonStyledComponent";
 
 export const HeadingCard = styled(EditCard)`
   display: flex;
@@ -10,7 +10,7 @@ export const HeadingCard = styled(EditCard)`
   padding: 25px;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     border-top: 10px solid var(--primary);
     width: 100%;
